@@ -1,7 +1,7 @@
 import './App.css';
 import TodoList from './components/TodoList/TodoList';
 import AddTodo from './components/AddTodo/AddTodo';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 function App() {
   const [todos, setTodos] = useState([
     {id: 1, text: 'todo 1', isFinished: true},
@@ -11,6 +11,9 @@ function App() {
     let nextId = todos.length + 1;
     setTodos([...todos, {id: nextId, text: todotext, isFinished: false}]);
   }
+  useEffect(() => {
+    console.log(todos);
+  })
   return (
     <>
       <AddTodo addTodos={addTodos}/>

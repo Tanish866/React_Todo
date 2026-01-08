@@ -1,9 +1,22 @@
-function Todo({ editTodo, deleteTodo, text, isFinished }){
+import { useState } from "react";
+
+function Todo({ finishTodo, editTodo, deleteTodo, text, isFinished }){
+
+    const [isEdditted, setIsEddited] = useState(false);
+    const [todoText, setTodoText] = useState(text);
+
     return(
         <div>
-            <input type="checkbox" checked={isFinished}/>
-            <span> {text}</span>
-            <button onClick={editTodo}>Edit</button>
+            <input type="checkbox" checked={isFinished} onChange={() => finishTodo(!isFinished)} />
+            {isEdditted ? (<input 
+                            value={todoText} 
+                            onChange={(e) => setTodoText(e.target.value)}/>)
+                             : (<span> {todoText}</span>)}
+            <button 
+            onClick={() =>{
+                setIsEddited(!isEdditted);
+                editTodo(todoText);
+            }}>{isEdditted ? 'Save' : 'Edit'}</button>
             <button onClick={deleteTodo}>Delete</button>
         </div>
     );
