@@ -1,13 +1,22 @@
-import './App.css'
-
+import './App.css';
+import TodoList from './components/TodoList/TodoList';
+import AddTodo from './components/AddTodo/AddTodo';
+import { useState } from 'react';
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [todos, setTodos] = useState([
+    {id: 1, text: 'todo 1', isFinished: true},
+    {id: 2, text: 'todo 2', isFinished: false}
+  ]);
+  function addTodos(todotext){
+    let nextId = todos.length + 1;
+    setTodos([...todos, {id: nextId, text: todotext, isFinished: false}]);
+  }
   return (
     <>
-      Todo
+      <AddTodo addTodos={addTodos}/>
+      <TodoList todos={todos} setTodos={setTodos}/>
     </>
-  )
+  );
 }
 
 export default App;
