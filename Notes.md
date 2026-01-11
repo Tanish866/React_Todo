@@ -22,3 +22,35 @@ Context API is used to share data globally in a React application without passin
 
 **5️⃣ Basic Syntax**
 ```js
+
+
+## 🔁 Reducers — Short Summary
+
+A **reducer** is a **pure function** that determines how an application’s **state changes** in response to an **action**.
+
+> **(state, action) → newState**
+
+---
+
+### ❓ Why reducers are used
+- Centralize and organize **state logic**
+- Make state updates **predictable and traceable**
+- Handle **complex or related state changes**
+- Improve **maintainability and scalability** in larger apps
+
+---
+
+### ⚙️ Key characteristics
+- Does **not mutate** the existing state
+- Always returns a **new state object**
+- Contains **no side effects** (no API calls, timers, or randomness)
+
+---
+
+### 📍 Where reducers are used
+- `useReducer` hook in React
+- Redux / Redux Toolkit
+- With Context API for global state management
+
+---
+
